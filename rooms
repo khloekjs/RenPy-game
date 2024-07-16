@@ -32,6 +32,9 @@ label main:
 
         "Go to the bathroom.":
             jump bathroom
+
+        "Go to your suitcase.":
+            jump suitcase
         
         "I've finished packing. Time to go!":
             jump end
