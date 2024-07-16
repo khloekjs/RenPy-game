@@ -171,4 +171,4 @@ label end:
 
 label artcredits:
 
-    "'Eduardo "Edujante" Fornieles' on Behance.net \n
+    "'Eduardo "Edujante" Fornieles' on Behance.net \n'Yami-Yami' on ArtStation.com \n'David Keen' on davidkeenart.com"
