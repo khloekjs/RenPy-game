@@ -172,3 +172,6 @@ label end:
 label artcredits:
 
     "'Eduardo "Edujante" Fornieles' on Behance.net \n'Yami-Yami' on ArtStation.com \n'David Keen' on davidkeenart.com"
+    "Prop art by Sky, Rachel, & Khloe!"
+    "Thank you for playing."
+    return
