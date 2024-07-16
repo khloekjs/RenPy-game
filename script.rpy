@@ -85,8 +85,8 @@ label start:
 #---BEDROOM-------------------------
 
 label bedroom:
-    p "You enter the bedroom." 
-    p "What do you look at?"
+    "You enter the bedroom." 
+    "What do you look at?"
 
     menu:
         "Closet":
@@ -105,14 +105,14 @@ label bedroom:
         menu:
             "Warm clothes":
                 $ warmClothes = True
-                p "You have packed 'warm clothes'."
+                "You have packed 'warm clothes'."
             "Light clothes":
                 $ lightClothes = True
-                p "You have packed 'light clothes'."
+                "You have packed 'light clothes'."
             "Both":
                 $ warmClothes = True
                 $ lightClothes = True
-                p "You have packed 'warm clothes' and 'light clothes'."
+                "You have packed 'warm clothes' and 'light clothes'."
 
     label bed:
 
@@ -136,5 +136,8 @@ label suitcase:
 #---END-------------------------
 
 label end:
+
+    if canada == True:
+        "You made it to Canada!"
     
     return
