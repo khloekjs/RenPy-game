@@ -19,47 +19,47 @@ label start:
     p "I've wanted to travel to somewhere for so long, and now I finally have time to go."
     p "Let's see, I want to go to..."
 
-    #$ canada = False
-    #$ greece = False
-    #$ newyork = False
+    $ canada = False
+    $ greece = False
+    $ newyork = False
 
     menu:
         "Canada":
             $ canada = True
+            $ location = "Canada"
         "Greece":
             $ greece = True
+            $ location = "Greece"
         "New York":
             $ newyork = True
+            $ location = "New York"
 
     if canada == True:
         p "Let's go to Canada!"
-        p "(Hint: Pack warmer clothing.)"
+        "(Hint: Pack warmer clothing.)"
     elif greece == True:
         p "Let's go to Greece!"
-        p "(Hint: Pack lighter clothing.)"
+        "(Hint: Pack lighter clothing.)"
     else:
         p "Let's go to New York!"
-        p "(Hint: Pack both warm and light clothing.)"
+        "(Hint: Pack both warm and light clothing.)"
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene hall:
-        zoom 1.5
-
     p "So now that I've decided where to go, I need to pack appropriately."
-
-#---MAIN-------------------------
-
+    
     label main:
+
+        scene hall:
+            zoom 1.5
 
         $ warmClothes = False
         $ lightClothes = False
         $ laptop = False
         $ charger = False
-        $ planeTicket = False
-        $ passport = False
+        $ ticketPassport = False
         $ towel = False
         $ shampooConditioner = False
         $ toothbrush = False
@@ -74,18 +74,21 @@ label start:
 
         menu:
             "Bedroom":
+                "You enter the bedroom." 
                 jump bedroom
             "Kitchen":
+                "You enter the kitchen."
                 jump kitchen
             "Bathroom":
+                "You enter the bathroom."
                 jump bathroom
-            "I've finished packing.":
+            "I've finished packing":
                 jump end
 
-#---BEDROOM-------------------------
-
 label bedroom:
-    "You enter the bedroom." 
+    scene bedroom:
+        zoom 1.3
+
     "What do you look at?"
 
     menu:
@@ -95,12 +98,12 @@ label bedroom:
             jump bed
         "Desk":
             jump desk
-        "Leave the bedroom.":
+        "Leave the bedroom":
             jump main
 
     label closet:
-        p "There's a pile of warm clothes and light clothes."
-        p "What do you pack?"
+        "There's a pile of warm clothes and light clothes."
+        "What do you pack?"
 
         menu:
             "Warm clothes":
@@ -113,31 +116,57 @@ label bedroom:
                 $ warmClothes = True
                 $ lightClothes = True
                 "You have packed 'warm clothes' and 'light clothes'."
+                
+        jump bedroom
 
     label bed:
+        "It's just a bed."
+
+        menu:
+            "Examine further":
+                "It's really just a bed. What are you, daydreaming? Go look at something else."
+            "Go back":
+                pass
+        jump bedroom
 
     label desk:
+        "There's your laptop, the charger, and your plane ticket and passport."
+        "What do you pack?"
 
-#---KITCHEN-------------------------
+        menu:
+            "Laptop":
+                $ laptop = True
+            "Charger":
+                $ charger = True
+            "Plane ticket and passport":
+                $ ticketPassport = True
+        
+        jump bedroom
 
 label kitchen:
 
 
-#---BATHROOM-------------------------
-
 label bathroom:
 
-#---SUITCASE-------------------------
-
-label suitcase:
-
-    "This is your suitcase."
-
-#---END-------------------------
 
 label end:
 
-    if canada == True:
-        "You made it to Canada!"
-    
+
+
+
+
+    # This shows a character sprite. A placeholder is used, but you can
+    # replace it by adding a file named "eileen happy.png" to the images
+    # directory.
+
+    #show eileen happy
+
+    # These display lines of dialogue.
+
+    #e "You've created a new Ren'Py game."
+
+    #e "Once you add a story, pictures, and music, you can release it to the world!"
+
+    # This ends the game.
+
     return
