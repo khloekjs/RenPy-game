@@ -49,7 +49,9 @@ label start:
         zoom 1.5
 
     p "So now that I've decided where to go, I need to pack appropriately."
-    
+
+#---MAIN-------------------------
+
     label main:
 
         $ warmClothes = False
@@ -79,6 +81,8 @@ label start:
                 jump bathroom
             "I've finished packing.":
                 jump end
+
+#---BEDROOM-------------------------
 
 label bedroom:
     p "You enter the bedroom." 
@@ -114,30 +118,23 @@ label bedroom:
 
     label desk:
 
+#---KITCHEN-------------------------
+
 label kitchen:
 
 
+#---BATHROOM-------------------------
+
 label bathroom:
 
+#---SUITCASE-------------------------
+
+label suitcase:
+
+    "This is your suitcase."
+
+#---END-------------------------
 
 label end:
-
-
-
-
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    #show eileen happy
-
-    # These display lines of dialogue.
-
-    #e "You've created a new Ren'Py game."
-
-    #e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
+    
     return
