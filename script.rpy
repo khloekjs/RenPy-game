@@ -19,9 +19,9 @@ label start:
     p "I've wanted to travel to somewhere for so long, and now I finally have time to go."
     p "Let's see, I want to go to..."
 
-    $ canada = False
-    $ greece = False
-    $ newyork = False
+    #$ canada = False
+    #$ greece = False
+    #$ newyork = False
 
     menu:
         "Canada":
@@ -48,7 +48,83 @@ label start:
     scene hall:
         zoom 1.5
 
-    p "test"
+    p "So now that I've decided where to go, I need to pack appropriately."
+    
+    label main:
+
+        $ warmClothes = False
+        $ lightClothes = False
+        $ laptop = False
+        $ charger = False
+        $ planeTicket = False
+        $ passport = False
+        $ towel = False
+        $ shampooConditioner = False
+        $ toothbrush = False
+        $ toothpaste = False
+        $ lotion = False
+        $ facewash = False
+        $ snacks = False
+        $ waterBottle = False
+
+    
+        p "Where should I look?"
+
+        menu:
+            "Bedroom":
+                jump bedroom
+            "Kitchen":
+                jump kitchen
+            "Bathroom":
+                jump bathroom
+            "I've finished packing.":
+                jump end
+
+label bedroom:
+    p "You enter the bedroom." 
+    p "What do you look at?"
+
+    menu:
+        "Closet":
+            jump closet
+        "Bed":
+            jump bed
+        "Desk":
+            jump desk
+        "Leave the bedroom.":
+            jump main
+
+    label closet:
+        p "There's a pile of warm clothes and light clothes."
+        p "What do you pack?"
+
+        menu:
+            "Warm clothes":
+                $ warmClothes = True
+                p "You have packed 'warm clothes'."
+            "Light clothes":
+                $ lightClothes = True
+                p "You have packed 'light clothes'."
+            "Both":
+                $ warmClothes = True
+                $ lightClothes = True
+                p "You have packed 'warm clothes' and 'light clothes'."
+
+    label bed:
+
+    label desk:
+
+label kitchen:
+
+
+label bathroom:
+
+
+label end:
+
+
+
+
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
