@@ -99,5 +99,15 @@ label bathroom:
 label suitcase:
 
     "This is your suitcase."
-    
 
+
+    
+#---END-------------------------
+
+label end:
+
+    #boolean to check if suitcase is packed
+    #if suitcase is not packed: ur suitcase is not packed!!! and then jump back to main
+    #if suitcase is packed: 
+
+    "
