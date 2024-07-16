@@ -151,22 +151,24 @@ label bathroom:
 
 label end:
 
+    if canada == True:
+        scene canada_bg
+        "You made it to Canada!"
+    elif newyork == True:
+        scene newyork_bg
+        "You made it to New York!"
+    else greece == True:
+        scene greece_bg
+        "You made it to Greece!"
 
+    "Thank you for playing. Enjoy your vacation!"
 
+    menu:
+        "View art credits."
+            jump artcredits
+        "End game."
+            return
 
+label artcredits:
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    #show eileen happy
-
-    # These display lines of dialogue.
-
-    #e "You've created a new Ren'Py game."
-
-    #e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
-    return
+    "'Eduardo "Edujante" Fornieles' on Behance.net \n
