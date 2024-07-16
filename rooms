@@ -38,7 +38,9 @@ label main:
         
         "I've finished packing. Time to go!":
             jump end
-    
+
+#---BEDROOM-------------------------
+
 label bedroom:
 
     "You enter the bedroom and look around."
@@ -58,6 +60,8 @@ label bedroom:
         "Leave the bedroom.":
             jump main
 
+#---KITCHEN-------------------------
+
 label kitchen:
 
     "You enter the kitchen and look around."
@@ -71,6 +75,7 @@ label kitchen:
         "Look at the cabinets.":
             jump kitchencabinets
 
+#---BATHROOM-------------------------
 
 label bathroom:
 
@@ -87,4 +92,12 @@ label bathroom:
 
         "Look at the cabinet.":
             jump bathroomcabinet
+
+
+#---SUITCASE-------------------------
+
+label suitcase:
+
+    "This is your suitcase."
+    
 
