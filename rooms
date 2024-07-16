@@ -1,0 +1,66 @@
+# The script of the game goes in this file.
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+# The game starts here.
+
+label start:
+
+    scene bg room
+
+    #write some long ish monologue about how summer has started
+    #and u are going on vacation
+    "I am going on vacation."
+    "Time to pack!"
+
+    #idk what else should go in start
+    jump main
+
+
+label main:
+
+    menu:
+        "Where should I go?"
+
+        "Go to your bedroom.":
+            jump bedroom
+
+        "Go to the kitchen.":
+            jump kitchen
+
+        "Go to the bathroom.":
+            jump bathroom
+        
+        "I've finished packing. Time to go!":
+            jump end
+    
+label bedroom:
+
+    "You enter the bedroom."
+    "You look around."
+
+    menu:
+        "What would you like to do?"
+
+        "Look at the closet.":
+            jump closet
+
+        "Look at your bed.":
+            jump bed
+
+        "Look at your desk.":
+            jump desk
+        
+        "Leave the bedroom.":
+            jump main
+
+label kitchen:
+
+    "You enter the kitchen."
+
+label bathroom:
+
+    "You enter the bathroom."
+
+
