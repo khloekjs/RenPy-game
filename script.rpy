@@ -64,10 +64,19 @@ label start:
         $ shampooConditioner = False
         $ toothbrush = False
         $ toothpaste = False
+        $ floss = False
         $ lotion = False
         $ facewash = False
         $ snacks = False
         $ waterBottle = False
+
+        image warmclothes:
+            "warmclothes.png"
+            zoom 0.5
+        
+        image lightclothes:
+            "lightclothes.png"
+            zoom 0.5
 
     
         p "Where should I look?"
@@ -108,15 +117,23 @@ label bedroom:
         menu:
             "Warm clothes":
                 $ warmClothes = True
+                show warmclothes at center with dissolve
                 "You have packed 'warm clothes'."
+                hide warmclothes
             "Light clothes":
                 $ lightClothes = True
+                show lightclothes at center with dissolve
                 "You have packed 'light clothes'."
+                hide lightclothes
             "Both":
                 $ warmClothes = True
+                show warmclothes at center with dissolve
+                "You have packed 'warm clothes'."
+                hide warmclothes
                 $ lightClothes = True
-                "You have packed 'warm clothes' and 'light clothes'."
-                
+                show lightclothes at center with dissolve
+                "You have packed 'light clothes'."
+                hide lightclothes
         jump bedroom
 
     label bed:
@@ -136,42 +153,132 @@ label bedroom:
         menu:
             "Laptop":
                 $ laptop = True
+                "You have packed 'laptop'."
             "Charger":
+                "You have packed 'charger'."
                 $ charger = True
             "Plane ticket and passport":
+                "You have packed 'plane ticket and passport'."
                 $ ticketPassport = True
-        
         jump bedroom
 
 label kitchen:
+    #scene kitchen COUGH COUGH WHO'S COLORING THIS
 
+    "What do you look at?"
+
+    menu:
+        "Pantry":
+            jump pantry
+        "Cabinet":
+            jump cabinet
+        "Fridge":
+            jump fridge
+        "Leave the kitchen":
+            jump main
+
+    label pantry:
+        "There are chips, chocolate, and other snacks that you like. What do you get?"
+        menu: 
+            "Chips":
+                "You have packed 'chips'."
+                $ snacks = True
+            "Chocolate":
+                "You have packed 'chocolate'."
+                $ snacks = True
+            "Other snacks":
+                "You have packed 'other snacks'."
+                $ snacks = True
+        jump kitchen
+
+    label cabinet:
+        $ waterBottle = True
+        "You grab a water bottle."
+        jump kitchen
+
+    label fridge:
+        if waterBottle:
+            "There's a water dispenser. You fill up your water bottle."
+        else:
+            "What are you doing here?"
+            "(Hint: Get a water bottle.)"
+        jump kitchen
 
 label bathroom:
+    scene bathroom:
+        zoom 1.75
 
+    "What do you look at?"
+
+    menu:
+        "Shower":
+            "There's a towel and your shampoo and conditioner. What do you grab?"
+            menu:
+                "Towel":
+                    "You have packed 'towel'."
+                    $ towel = True
+                "Shampoo and conditioner":
+                    "You have packed 'shampoo and conditioner'."
+                    $ shampooConditioner = True
+            jump bathroom
+        "Sink":
+            "There's your toothbrush, toothpaste, and floss. What do you get?"
+            menu:
+                "Toothbrush":
+                    "You have packed 'toothbrush'."
+                    $ toothbrush = True
+                "Toothpaste":
+                    "You have packed 'toothpaste'."
+                    $ toothpaste = True
+                "Floss":
+                    "You have packed 'floss'."
+                    $ floss = True
+            jump bathroom
+        "Cabinet":
+            "There's lotion and facewash. Which do you get?"
+            menu:
+                "Lotion":
+                    "You have packed 'lotion'."
+                    $ lotion = True
+                "Facewash":
+                    "You have packed 'facewash'."
+                    $ facewash = True
+            jump bathroom
+        "Mirror":
+            "Hey look, it's you!"
+            jump bathroom
+        "Leave the bathroom":
+            jump main
+
+label credits:
+    "'Eduardo 'Edujante' Fornieles' on Behance.net\n'Yami-Yami' on ArtStation.com\n'Nadia Bykova' on Artpal.com\n'David Keen' on davidkeenart.com"
+    "Prop art by Sky, Rachel, & Khloe\nCode by Abigail & Khloe"
+    jump finish
 
 label end:
-
     if canada == True:
-        scene canada_bg
+        scene canada_bg:
+            zoom 2.75
         "You made it to Canada!"
     elif newyork == True:
-        scene newyork_bg
+        scene newyork_bg:
+            zoom 2.0
         "You made it to New York!"
-    else greece == True:
-        scene greece_bg
+    else:
+        scene greece_bg:
+            zoom 1.5
         "You made it to Greece!"
 
     "Thank you for playing. Enjoy your vacation!"
+    jump finish
+
+label finish:
 
     menu:
-        "View art credits."
-            jump artcredits
-        "End game."
+        "View credits":
+            jump credits
+        "End game":
             return
 
-label artcredits:
 
-    "'Eduardo "Edujante" Fornieles' on Behance.net \n'Yami-Yami' on ArtStation.com \n'David Keen' on davidkeenart.com"
-    "Prop art by Sky, Rachel, & Khloe!"
-    "Thank you for playing."
-    return
+return
